@@ -3,7 +3,7 @@ from app.config.settings import GEMINI_API_KEY
 
 
 def get_gemini_llm(
-    model: str = "gemini-1.5-flash",
+    model: str = "models/gemini-2.5-flash",
     temperature: float = 0.0
 ):
     return ChatGoogleGenerativeAI(
