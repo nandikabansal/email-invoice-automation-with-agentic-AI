@@ -1,13 +1,8 @@
-from app.graph.invoice_graph import invoice_graph
+from fastapi import FastAPI
+from app.api.manual_input_api import router as manual_router
+from app.api.extract import router as extract_router
 
-if __name__ == "__main__":
-    initial_state = {
-        "email_id": "test-001",
-        "email_subject": "Invoice for March",
-        "email_body": "Please find attached invoice",
-        "attachments": []
-    }
+app = FastAPI(title="Email Invoice Automation")
 
-    result = invoice_graph.invoke(initial_state)
-    print("\nFinal State:")
-    print(result)
+app.include_router(manual_router)
+app.include_router(extract_router)

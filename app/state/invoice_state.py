@@ -1,12 +1,15 @@
 from typing import TypedDict, Optional, List
 
+class Attachment(TypedDict):
+    filename: str
+    file_path: str
 
 class InvoiceState(TypedDict):
     email_id: str
     email_subject: str
     email_body: str
 
-    attachments: List[str]
+    attachments: List[Attachment]
 
     is_invoice: Optional[bool]
     classification_confidence: Optional[float]

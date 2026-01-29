@@ -82,7 +82,6 @@ Email Body:
 
     try:
         raw = response.content.strip()
-
         # Gemini sometimes wraps JSON in ```json
         if raw.startswith("```"):
             raw = raw.strip("```").replace("json", "").strip()
@@ -93,7 +92,6 @@ Email Body:
         confidence = float(data.get("confidence", 0.0))
 
     except Exception as e:
-        print("Exception is being handled!!!!!!!!!")
         print("RAW GEMINI OUTPUT:")
         print(response.content)
         print("ERROR:", e)
